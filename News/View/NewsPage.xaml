@@ -12,11 +12,11 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <Entry Placeholder="Enter Username" Text="{Binding UserName}"/>
+        <Entry Placeholder="Enter Username" Text="{Binding Username}"/>
 
-        <Label  Text="{Binding UserName}"/>
+        <Label  Text="{Binding Username}"/>
 
-        <Button Text="Sign In" Command="{Binding SignInCommand}"/>
+        <Button Text="Sign In"/>
         
     </VerticalStackLayout>
 </ContentPage>
