@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace News.ViewModel
 {
@@ -14,6 +15,11 @@ namespace News.ViewModel
         [ObservableProperty]
         string username;
 
+        [RelayCommand]
+        void Login()
+        {
+
+        }
 
         //public Command SignInCommand { get; set; }
         //private string userName;

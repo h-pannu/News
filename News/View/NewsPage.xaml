@@ -16,7 +16,7 @@
 
         <Label  Text="{Binding Username}"/>
 
-        <Button Text="Sign In"/>
+        <Button Text="Sign In" Command="{Binding LoginCommand}"/>
         
     </VerticalStackLayout>
 </ContentPage>
