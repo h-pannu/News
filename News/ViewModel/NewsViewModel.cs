@@ -19,7 +19,7 @@ namespace News.ViewModel
         [RelayCommand]
         void Login()
         {
-            Shell.Current.GoToAsync(nameof(NewsDetailPage));
+            Shell.Current.GoToAsync($"{nameof(NewsDetailPage)}?username={Username}");
         }
 
         //public Command SignInCommand { get; set; }
