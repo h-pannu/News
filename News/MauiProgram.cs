@@ -18,7 +18,7 @@ namespace News
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<MockNewsService>();
+            builder.Services.AddSingleton<NewsService>();
 
             builder.Services.AddSingleton<NewsViewModel>();
             builder.Services.AddSingleton<NewsPage>();

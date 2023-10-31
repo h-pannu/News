@@ -16,17 +16,17 @@ namespace News.ViewModel
     //public class NewsViewModel : INotifyPropertyChanged
     public partial class NewsViewModel : ObservableObject
     {
-        private readonly MockNewsService _newsService;
+        private NewsService _newsService;
         public ObservableCollection<NewsToday> NewsCollection { get; set; } = new ObservableCollection<NewsToday>();
-        public NewsViewModel(MockNewsService mockNewsService)
+        public NewsViewModel(NewsService newsService)
         {
-            _newsService = mockNewsService;
+            _newsService = newsService;
             GetNewsList();
         }
 
-        private void GetNewsList()
+        private async void GetNewsList()
         {
-            var news = _newsService.GetNews();
+            var news = await _newsService.GetNewsTodays();
             foreach (var item in news)
             {
                 NewsCollection.Add(item);
