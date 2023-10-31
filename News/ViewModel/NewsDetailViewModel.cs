@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace News.ViewModel
 {
-    [QueryProperty(nameof(User), "UserKey")]
     public partial class NewsDetailViewModel :ObservableObject
     {
-        [ObservableProperty]
-        User user;
+        
     }
 }

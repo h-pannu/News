@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using News.Model;
+using News.Services;
 using News.View;
 
 namespace News.ViewModel
@@ -14,50 +16,21 @@ namespace News.ViewModel
     //public class NewsViewModel : INotifyPropertyChanged
     public partial class NewsViewModel : ObservableObject
     {
-        [ObservableProperty]
-        string username;
-
-        [RelayCommand]
-        void Login()
+        private readonly MockNewsService _newsService;
+        public ObservableCollection<NewsToday> NewsCollection { get; set; } = new ObservableCollection<NewsToday>();
+        public NewsViewModel(MockNewsService mockNewsService)
         {
-            var user = new User()
-            {
-                Name = "Harpreet",
-                Email = "er.harpreetpanu@live.com",
-                Phone = "6692069355"
-            };
-
-            Shell.Current.GoToAsync($"{nameof(NewsDetailPage)}", new Dictionary<string, object>
-            {
-                {"UserKey", user }
-            });
+            _newsService = mockNewsService;
+            GetNewsList();
         }
 
-        //public Command SignInCommand { get; set; }
-        //private string userName;
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //public string UserName
-        //{
-        //    get { return userName; }
-        //    set { userName = value; 
-        //        OnPropertyChanged("UserName"); }
-        //}
-
-        //public NewsViewModel()
-        //{
-        //    SignInCommand = new Command(SignIn);
-        //}
-
-        //private void SignIn(object obj)
-        //{
-        //    var user = UserName;
-        //}
-
-        //void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
+        private void GetNewsList()
+        {
+            var news = _newsService.GetNews();
+            foreach (var item in news)
+            {
+                NewsCollection.Add(item);
+            }
+        }
     }
 }

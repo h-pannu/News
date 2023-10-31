@@ -4,19 +4,22 @@
              x:Class="News.View.NewsPage"
              xmlns:viewmodel="clr-namespace:News.ViewModel"
              x:DataType="viewmodel:NewsViewModel"
+             xmlns:model="clr-namespace:News.Model"
              Title="News Page">
-    <VerticalStackLayout Margin="30">
-        
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-        <Entry Placeholder="Enter Username" Text="{Binding Username}"/>
-
-        <Label  Text="{Binding Username}"/>
-
-        <Button Text="Sign In" Command="{Binding LoginCommand}"/>
-        
-    </VerticalStackLayout>
+    <CollectionView Margin="10" ItemsSource="{Binding NewsCollection}">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:NewsToday">
+                <Frame Padding="5" BorderColor="LightGray" CornerRadius="0">
+                    <VerticalStackLayout>
+                        <Image HeightRequest="200"
+                               Aspect="AspectFill" Source="{Binding ImageUrl}"/>
+                        <Label FontSize="Medium" Text="{Binding Title}"/>
+                    </VerticalStackLayout>  
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

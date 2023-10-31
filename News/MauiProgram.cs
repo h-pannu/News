@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using News.Services;
+using News.View;
+using News.ViewModel;
 
 namespace News
 {
@@ -15,8 +18,12 @@ namespace News
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<MockNewsService>();
+            builder.Services.AddSingleton<NewsViewModel>();
+            builder.Services.AddSingleton<NewsPage>();
+
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

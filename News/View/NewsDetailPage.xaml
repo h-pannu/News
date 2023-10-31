@@ -5,9 +5,5 @@
              xmlns:viewmodel="clr-namespace:News.ViewModel"
              x:DataType="viewmodel:NewsDetailViewModel"
              Title="NewsDetailPage">
-    <VerticalStackLayout>
-        <Label Text="{Binding User.Name}"/>
-        <Label Text="{Binding User.Email}"/>
-        <Label Text="{Binding User.Phone}"/>
-    </VerticalStackLayout>
+    
 </ContentPage>
