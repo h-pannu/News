@@ -5,5 +5,19 @@
              xmlns:viewmodel="clr-namespace:News.ViewModel"
              x:DataType="viewmodel:NewsDetailViewModel"
              Title="NewsDetailPage">
-    
+    <VerticalStackLayout Spacing="10" Margin="0">
+
+        <Image HeightRequest="250"
+               Aspect="Fill"
+               Source="{Binding NewsToday.ImageUrl}"/>
+        <Label Margin="20,0,20,0"
+               HorizontalOptions="Start"
+               FontSize="Title"
+               Text="{Binding NewsToday.Title}"/>
+        <Label Margin="20,0,20,0"
+        HorizontalOptions="Start"
+        FontSize="Small"
+        Text="{Binding NewsToday.Content}"/>
+        
+    </VerticalStackLayout>
 </ContentPage>

@@ -32,5 +32,17 @@ namespace News.ViewModel
                 NewsCollection.Add(item);
             }
         }
+
+        [ObservableProperty]
+        NewsToday selectedNews;
+
+        [RelayCommand]
+        void GoToDetails()
+        {
+            Shell.Current.GoToAsync($"{nameof(NewsDetailPage)}", new Dictionary<string, object>
+            {
+                {"NewsSelected", SelectedNews}
+            });
+        }
     }
 }

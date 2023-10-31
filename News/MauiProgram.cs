@@ -19,8 +19,12 @@ namespace News
                 });
 
             builder.Services.AddSingleton<MockNewsService>();
+
             builder.Services.AddSingleton<NewsViewModel>();
             builder.Services.AddSingleton<NewsPage>();
+
+            builder.Services.AddSingleton<NewsDetailViewModel>();
+            builder.Services.AddSingleton<NewsDetailPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -4,9 +4,9 @@ namespace News.View;
 
 public partial class NewsDetailPage : ContentPage
 {
-	public NewsDetailPage()
+	public NewsDetailPage(NewsDetailViewModel newsDetailViewModel)
 	{
 		InitializeComponent();
-		BindingContext = new NewsDetailViewModel();
+		BindingContext = newsDetailViewModel;
 	}
 }
