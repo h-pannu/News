@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using News.View;
 
 namespace News.ViewModel
 {
@@ -18,7 +19,7 @@ namespace News.ViewModel
         [RelayCommand]
         void Login()
         {
-
+            Shell.Current.GoToAsync(nameof(NewsDetailPage));
         }
 
         //public Command SignInCommand { get; set; }
